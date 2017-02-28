@@ -1,0 +1,128 @@
+<ion-view title="Pre-approval" hide-back-button="true" id="page7">
+  <ion-nav-buttons side="left" scroll="false" class="has-header">
+    <button class="button button-icon icon No Icon"  ng-click="cancel()"> Cancel</button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right" scroll="false" class="has-header">
+    <button class="button button-icon icon No Icon"> Save</button>
+  </ion-nav-buttons>
+  <ion-content padding="true" scroll="false" class="has-header">
+    <ion-slides disable-side-menu-drag="" options="{'loop': false}" slider="slider3" delegate-handle="slider3" id="preApproval-slider3" style="width:calc(100% + 20px);height:100%;margin-left:-10px;">
+      <ion-slide-page id="preApproval-slide220">
+        <form id="preApproval-form7" class="list">
+          <label class="item item-input" id="preApproval-input16">
+            <span class="input-label">TA Number</span>
+            <input type="text" placeholder="" ng-model="pre_approval_form.trip_approval_number">
+          </label>
+          <label class="item item-select" id="preApproval-select5">
+            <span class="input-label">Purpose</span>
+            <select ng-model="pre_approval_form.purpose"></select>
+          </label>
+          <ion-item class="item-divider" id="preApproval-list-item-divider1"> Work Orders</ion-item>
+          <label class="item item-input" id="preApproval-input18">
+            <span class="input-label">Work Order No</span>
+            <input type="text" placeholder="" ng-model="pre_approval_form.work_orders.work_order_number">
+          </label>
+          <ion-toggle toggle-class="toggle-balanced" id="preApproval-toggle2" ng-model="pre_approval_form.work_orders.recoverable">Recoverable?</ion-toggle>
+          <label class="item item-select" id="preApproval-select9">
+            <span class="input-label">R/C Charged?</span>
+            <select ng-model="pre_approval_form.work_orders.rc_charged"></select>
+          </label>
+          <label class="item item-select" id="preApproval-select10">
+            <span class="input-label">Business Rationale</span>
+            <select ng-model="pre_approval_form.work_orders.business_rationale">
+              <option>Mandate</option>
+              <option>Policy&amp;Program</option>
+              <option>Governance</option>
+              <option>Training</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </form>
+      </ion-slide-page>
+      <ion-slide-page id="preApproval-slide221">
+        <button id="preApproval-button6" ng-click="addItinerary()" class="button button-positive  button-block">Add itinerary</button>
+        <div class="list card" id="preApproval-card23" ng-show="cards">
+          <form id="preApproval-form10" class="list">
+            <label class="item item-input" id="preApproval-input13">
+              <span class="input-label">Arrival</span>
+              <input type="date" placeholder="" ng-model="itinerary.arrival">
+              {{itinerary.arrival}}
+            </label>
+            <label class="item item-input" id="preApproval-input12">
+              <span class="input-label">Departure</span>
+              <input type="date" placeholder="" ng-model="itinerary.departure">
+            </label>
+          </form>
+          <div id="preApproval-button-bar3" class="button-bar">
+            <button id="preApproval-button14" style="font-size:14px;border-radius:1px 1px 1px 1px;" class="button button-positive  button-block" ng-click="itinerary.class = 'Economy'">Economy</button>
+            <button id="preApproval-button15" style="font-size:14px;" class="button button-dark  button-block" ng-click="itinerary.class = 'Business'">Business</button>
+            <button id="preApproval-button16" style="font-size:14px;border-radius:2px 2px 2px 2px;" class="button button-dark  button-block" ng-click="itinerary.class = 'First Class'">First Class</button>
+          </div>
+          <form id="preApproval-form11" class="list">
+            <label class="item item-select" id="preApproval-select11">
+              <span class="input-label">Accomodations</span>
+              <select ng-model="itinerary.accomodations">
+                <!--Why accomodation is a select form and not input? which options are going to be used?-->
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+              </select>
+            </label>
+          </form>
+          <button id="preApproval-button7" ng-click="saveItinerary()" class="button button-positive  button-block">Save Itinerary</button>
+        </div>
+      </ion-slide-page>
+      <ion-slide-page id="preApproval-slide222">
+        <form id="preApproval-form12" class="list">
+          <ion-item class="item-divider" id="preApproval-list-item-divider2"> Trip Budget</ion-item>
+          <label class="item item-input" id="preApproval-input14">
+            <input type="text" placeholder="Fare" ng-model="pre_approval_form.fare">
+          </label>
+          <label class="item item-input" id="preApproval-input17">
+            <input type="text" placeholder="Car Rental" ng-model="pre_approval_form.car_rental">
+          </label>
+          <label class="item item-input" id="preApproval-input19">
+            <input type="text" placeholder="Private Vehicle" ng-model="pre_approval_form.private_vehicle">
+          </label>
+          <label class="item item-input" id="preApproval-input15">
+            <input type="text" placeholder="Meals" ng-model="pre_approval_form.meals">
+          </label>
+          <label class="item item-input" id="preApproval-input20">
+            <input type="text" placeholder="Accomodation" ng-model="pre_approval_form.accomodation">
+          </label>
+          <label class="item item-input" id="preApproval-input21">
+            <input type="text" placeholder="Hospitality" ng-model="pre_approval_form.hospitality">
+          </label>
+          <label class="item item-input" id="preApproval-input22">
+            <input type="text" placeholder="Incidental" ng-model="pre_approval_form.incidental">
+          </label>
+        </form>
+        <p style="font-size:36px"> Total: {{pre_approval_form.trip_budget.fare}} $</p>
+      </ion-slide-page>
+      <ion-slide-page id="preApproval-slide21">
+        <form id="preApproval-form13" class="list">
+          <ion-toggle toggle-class="toggle-balanced">Most Efficent Method of Transportation</ion-toggle>
+          <label class="item item-select" id="preApproval-select12">
+            <span class="input-label">Rationale</span>
+            <select></select>
+          </label>
+          <div class="spacer" style="height: 10px;"></div>
+          <ion-toggle toggle-class="toggle-balanced">Non-Remote meeting</ion-toggle>
+          <label class="item item-select" id="preApproval-select13">
+            <span class="input-label">Rationale</span>
+            <select></select>
+          </label>
+          <div class="spacer" style="height: 10px;"></div>
+          <ion-toggle toggle-class="toggle-balanced">More than 5 CCC Travellers</ion-toggle>
+          <label class="item item-select" id="preApproval-select14">
+            <span class="input-label">Rationale</span>
+            <select></select>
+          </label>
+          <div class="spacer" style="height: 10px;"></div>
+          <a ui-sref="myTrips" id="preApproval-button17" class="button button-positive  button-block">Submit for Pre-Approval</a>
+        </form>
+      </ion-slide-page>
+    </ion-slides>
+  </ion-content>
+</ion-view>
