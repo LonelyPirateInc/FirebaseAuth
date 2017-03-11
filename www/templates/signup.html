@@ -3,23 +3,28 @@
     <form id="signup-form3" class="list">
       <ion-list id="signup-list5">
         <label class="item item-input" id="signup-input5">
-          <input type="text" ng-model="new_user.first_name" placeholder="First Name">
+          <input type="text" ng-model="newProfile.first_name" placeholder="First Name">
         </label>
         <label class="item item-input" id="signup-input8">
-          <input type="text" ng-model="new_user.last_name" placeholder="Last Name">
+          <input type="text" ng-model="newProfile.last_name" placeholder="Last Name">
         </label>
         <label class="item item-input" id="signup-input9">
-          <input type="number" ng-model="new_user.employee_number" placeholder="Employee Number">
+          <input type="number" ng-model="newProfile.employee_number" placeholder="Employee Number">
         </label>
         <label class="item item-input" id="signup-input6">
-          <input type="email" ng-model="new_user.email" placeholder="Email">
+          <input type="email" ng-model="newProfile.email" placeholder="Email">
         </label>
         <label class="item item-input" id="signup-input7">
-          <input type="password" ng-model="new_user.password" placeholder="Password">
+          <input type="password" ng-model="newProfile.password" placeholder="Password">
         </label>
       </ion-list>
       <div class="spacer" style="width: 300px; height: 17px;"></div>
-      <button id="signup-button5" class="button button-positive  button-block" ng-click="createUser()">Sign up</button>
+      <button id="signup-button5" class="button button-positive  button-block" ng-click="createProfileInDataBase()">Sign up</button>
     </form>
+
+<pre>
+      {{newProfile}}
+
+  </pre>
   </ion-content>
 </ion-view>

@@ -77,50 +77,50 @@
         <form id="preApproval-form12" class="list">
           <ion-item class="item-divider" id="preApproval-list-item-divider2"> Trip Budget</ion-item>
           <label class="item item-input" id="preApproval-input14">
-            <input type="text" placeholder="Fare" ng-model="pre_approval_form.fare">
+            <input type="text" placeholder="Fare"  ng-model="pre_approval_form.trip_budget.fare" ng-change="calculateTotal(pre_approval_form.trip_budget.fare)">
           </label>
           <label class="item item-input" id="preApproval-input17">
-            <input type="text" placeholder="Car Rental" ng-model="pre_approval_form.car_rental">
+            <input type="text" placeholder="Car Rental"  ng-model="pre_approval_form.trip_budget.car_rental" ng-change="calculateTotal(pre_approval_form.trip_budget.car_rental)">
           </label>
           <label class="item item-input" id="preApproval-input19">
-            <input type="text" placeholder="Private Vehicle" ng-model="pre_approval_form.private_vehicle">
+            <input type="text" placeholder="Private Vehicle" ng-model="pre_approval_form.trip_budget.private_vehicle"  ng-change="calculateTotal(pre_approval_form.trip_budget.private_vehicle)">
           </label>
           <label class="item item-input" id="preApproval-input15">
-            <input type="text" placeholder="Meals" ng-model="pre_approval_form.meals">
+            <input type="text" placeholder="Meals" ng-model="pre_approval_form.trip_budget.meals" ng-change="calculateTotal(pre_approval_form.trip_budget.meals)"> 
           </label>
           <label class="item item-input" id="preApproval-input20">
-            <input type="text" placeholder="Accomodation" ng-model="pre_approval_form.accomodation">
+            <input type="text" placeholder="Accomodation"  ng-model="pre_approval_form.trip_budget.accomodation" ng-change="calculateTotal(pre_approval_form.trip_budget.accomodation)">
           </label>
           <label class="item item-input" id="preApproval-input21">
-            <input type="text" placeholder="Hospitality" ng-model="pre_approval_form.hospitality">
+            <input type="text" placeholder="Hospitality" ng-model="pre_approval_form.trip_budget.hospitality" ng-change="calculateTotal(pre_approval_form.trip_budget.hospitality)" >
           </label>
           <label class="item item-input" id="preApproval-input22">
-            <input type="text" placeholder="Incidental" ng-model="pre_approval_form.incidental">
+            <input type="text" placeholder="Incidental" ng-model="pre_approval_form.trip_budget.incidental" ng-change="calculateTotal(pre_approval_form.trip_budget.incidental)" >
           </label>
         </form>
-        <p style="font-size:36px"> Total: {{pre_approval_form.trip_budget.fare}} $</p>
+        <p style="font-size:36px"> Total: {{pre_approval_form.trip_budget.total}} $</p>
       </ion-slide-page>
       <ion-slide-page id="preApproval-slide21">
         <form id="preApproval-form13" class="list">
-          <ion-toggle toggle-class="toggle-balanced">Most Efficent Method of Transportation</ion-toggle>
+          <ion-toggle toggle-class="toggle-balanced" ng-model="pre_approval_form.most_efficent_method_of_transportation">Most Efficent Method of Transportation</ion-toggle>
           <label class="item item-select" id="preApproval-select12">
             <span class="input-label">Rationale</span>
-            <select></select>
+            <select ng-model="most_efficent_method_of_transportation_rationale"></select>
           </label>
           <div class="spacer" style="height: 10px;"></div>
-          <ion-toggle toggle-class="toggle-balanced">Non-Remote meeting</ion-toggle>
+          <ion-toggle toggle-class="toggle-balanced" ng-model="pre_approval_form.non_remote_meeting">Non-Remote meeting</ion-toggle>
           <label class="item item-select" id="preApproval-select13">
             <span class="input-label">Rationale</span>
-            <select></select>
+            <select ng-model="non_remote_meeting_rationa"></select>
           </label>
           <div class="spacer" style="height: 10px;"></div>
-          <ion-toggle toggle-class="toggle-balanced">More than 5 CCC Travellers</ion-toggle>
+          <ion-toggle toggle-class="toggle-balanced" ng-model="pre_approval_form.more_than_5_ccc_travellers">More than 5 CCC Travellers</ion-toggle>
           <label class="item item-select" id="preApproval-select14">
             <span class="input-label">Rationale</span>
-            <select></select>
+            <select ng-model="pre_approval_form.more_than_5_ccc_travellers_rationale"></select>
           </label>
           <div class="spacer" style="height: 10px;"></div>
-          <a ui-sref="myTrips" id="preApproval-button17" class="button button-positive  button-block">Submit for Pre-Approval</a>
+          <a ui-sref="myTrips" id="preApproval-button17" class="button button-positive  button-block" ng-click="submitForm()">Submit for Pre-Approval</a>
         </form>
       </ion-slide-page>
     </ion-slides>
